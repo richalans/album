@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+<h1>📸 Secure AI-Powered Photo Album</h1>
+<h2>🔧 Architecture Overview</h2>
+<p>Our photo album system is built with Flask + Gunicorn + SQLite3, deployed via Podman rootless containers. It supports modular expansion and integrates seamlessly with a Telegram bot interface.</p>
+
+<h2>📦 Key Components</h2>
+<ul>
+    <li>Website Frontend: index.html, upload.html, admin.html, etc.</li>
+    <li>Backend Logic: album_server.py, db_module.py, exif.py, video.py</li>
+    <li>Deployment Scripts: deploy.sh, deploy_all.sh</li>
+    <li>Semantic Search: Independent OpenCLIP-based AI search module</li>
+    <li>Security: TOTP login, session hardening, CSRF protection, and secure cookies</li>
+</ul>
+
+<h2>📸 System Feature Overview</h2>
+<ul>
+    <li>✔️ Support for photo uploads (via Telegram Bot / web drag-and-drop)</li>
+    <li>✔️ Compatible with HEIC / JPEG image formats</li>
+    <li>✔️ Automatically extracts EXIF data (capture time, GPS, camera details)</li>
+    <li>✔️ Supports multi-level folder structure (e.g., /cat/2025/Travel)</li>
+    <li>✔️ Album interface includes category sidebar, search bar, and pagination</li>
+    <li>✔️ Photo calendar view (calendar.html) shows monthly capture counts</li>
+    <li>✔️ Photo timeline view (organized by year and month)</li>
+    <li>✔️ Click a month to preview all images with lightbox zoom and EXIF info</li>
+    <li>✔️ Modal popup includes ✕ close button in top-right corner for easy exit</li>
+    <li>✔️ Secure login with password + TOTP two-factor authentication</li>
+    <li>✔️ Supports Private Mode: restrict photo access to logged-in users only</li>
+</ul>
+
+<h2>🛡️ Security Design</h2>
+<ul>
+    <li>TOTP + Password login with brute-force prevention</li>
+    <li>Session protection: Secure, HttpOnly, SameSite=Strict</li>
+    <li>Upload filtering: block invalid formats, handle HEIC/HEIF securely</li>
+    <li>Bot Access Control: whitelist, command lockdown, XSS-safe rendering</li>
+    <li>Podman Isolation: rootless containers with secure volume management</li>
+</ul>
+
+<h2>📊 Comparison with Google &amp; Apple Photos</h2>
+<table border="1">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Our Album</th>
+<th>Google Photos</th>
+<th>Apple Photos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Semantic Search</td>
+<td>✅ (CLIP-powered, open source)</td>
+<td>✅ (proprietary)</td>
+<td>✅ (proprietary)</td>
+</tr>
+<tr>
+<td>Private Deployment</td>
+<td>✅ (on your own server)</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>EXIF Info Display</td>
+<td>✅ Full details + Camera info</td>
+<td>⚠️ Limited</td>
+<td>⚠️ Limited</td>
+</tr>
+<tr>
+<td>Custom Folder Tree</td>
+<td>✅ Fully customizable</td>
+<td>❌ (auto-organized)</td>
+<td>❌ (auto-organized)</td>
+</tr>
+<tr>
+<td>Bot API Upload</td>
+<td>✅ via Telegram</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Video Support</td>
+<td>✅ Optional toggle</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Language Support</td>
+<td>✅ (EN / 繁體中文)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+
+<h2>💽 Storage Usage Report</h2>
+<p>The system provides a real-time Storage Report that visually represents how much space each photo category consumes. Inspired by macOS storage bars, it offers a clean and intuitive breakdown of your /photo directory.</p>
+<ul>
+    <li>📊 Color-coded bar chart showing usage by category</li>
+    <li>📁 Automatically adapts to any number of dynamic folders</li>
+    <li>🧠 Ideal for monitoring usage, backup planning, and optimizing space</li>
+</ul>
+<p>Whether you're a power user or admin, this tool offers a transparent overview of your storage footprint. Available in the /admin panel.</p>
+
+<h2>🚀 Why Choose This System?</h2>
+<p>If you value privacy, control, and open-source extensibility, this AI-driven photo album provides unparalleled flexibility for power users, developers, and self-hosting communities.</p>
+</body>
+</html>
